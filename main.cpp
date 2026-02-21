@@ -1,42 +1,51 @@
 //main.cpp
+#include <string>
+#include <iostream>
+#include <string>
+#include "reverse.hpp"
+
 int main() {
+
     // int[]
-    int ai[]{1, 2, 3, 4};
-    int ni = // compute size of array
-    std::cout<<"ai: "; 
-    print_array<int>(ai, ni);
-    reverse_array<int>(ai, ni);
-    std::cout<<"ai: "; 
-    print_array<int>(ai, ni);
+    int ai[]{ 1, 2, 3, 4 };
+    int ni = sizeof(ai) / sizeof(ai[0]);
+    std::cout << "ai: ";
+    print_array(ai, ni);
+    reverse_array(ai, ni);
+    std::cout << "ai: ";
+    print_array(ai, ni);
+
 
     // double[]
-    double ad[] = {1.5, 2.5, 3.5, 4.5};
-    int nd = // compute size of array
-    std::cout<<"ad: "; 
-    print_array<double>(ad, nd);
-    reverse_array<double>(ad, nd); 
-    std::cout<<"ad: "; 
-    print_array<double>(ad, nd);
+    double ad[] = { 1.5, 2.5, 3.5, 4.5 };
+    int nd = sizeof(ad) / sizeof(ad[0]);
+    std::cout << "ad: ";
+    print_array(ad, nd);
+    reverse_array(ad, nd);
+    std::cout << "ad: ";
+    print_array(ad, nd);
 
-    // char[] (not a C-string)
-    char letters[] = {'E','C','E','3','5', '1', '4'};
-    int nc = // compute size of array
-    std::cout<<"letters: "; 
-    print_array<char>(letters, nc);
-    reverse_array<char>(letters, nc);
-    std::cout<<"letters: "; 
-    print_array<char>(letters, nc);
 
-    // C-string: reverse only the characters, not the '\0'
+    // char[] (not C-string)
+    char letters[] = { 'E','C','E','3','5','1','4' };
+    int nc = sizeof(letters) / sizeof(letters[0]);
+    std::cout << "letters: ";
+    print_array(letters, nc);
+    reverse_array(letters, nc);
+    std::cout << "letters: ";
+    print_array(letters, nc);
+
+
+    // C-string
     char word[] = "hello";
     std::cout << "cstr: " << word << "\n";
-    int nw = // compute size of string
-    reverse_array<char>(word, nw);
+    int nw = sizeof(word) / sizeof(word[0]) - 1;
+    // subtract 1 so we DO NOT reverse '\0'
+    reverse_array(word, nw);
     std::cout << "cstr: " << word << "\n";
-
     return 0;
-}
-/*
+
+    /*
 Expected Output
 ai: : [1, 2, 3, 4]
 ai: : [4, 3, 2, 1]
@@ -47,3 +56,4 @@ letters: : [4, 1, 5, 3, E, C, E]
 cstr: hello
 cstr: olleh
 */
+}
