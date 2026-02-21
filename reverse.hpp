@@ -1,7 +1,5 @@
 //reverse.hpp
 
-define generic versions
-
 #ifndef REVERSE_HPP
 #define REVERSE_HPP
 
